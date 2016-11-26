@@ -44,6 +44,21 @@ public interface GenerateStorageClient {
      */
     StorePath uploadFile(String groupName, InputStream inputStream, long fileSize, String fileExtName);
     
+    /**
+     * 上传文件(文件不可修改)
+     * 
+     * <pre>
+     * 文件上传后不可以修改，如果要修改则删除以后重新上传
+     * </pre>
+     * 
+     * @param groupName
+     * @param byte [] file
+     * @param fileSize
+     * @param fileExtName
+     * @return
+     */
+    StorePath uploadFile(String groupName, byte [] file, long fileSize, String fileExtName);
+    
    
     /**
      * 
@@ -74,6 +89,23 @@ public interface GenerateStorageClient {
      */
     StorePath uploadSlaveFile(String groupName, String masterFilename, InputStream inputStream, long fileSize,
             String prefixName, String fileExtName);
+    
+   
+    /**
+     * 上传从文件
+     * 
+     * @param groupName
+     * @param masterFilename
+     * @param byte [] file
+     * @param fileSize
+     * @param prefixName
+     * @param fileExtName
+     * @return
+     */
+    StorePath uploadSlaveFile(String groupName, String masterFilename, byte [] file, long fileSize,
+            String prefixName, String fileExtName);
+    
+    
 
     /**
      * 

@@ -43,17 +43,39 @@ public class StorageUploadFileRequest extends FdfsRequest {
 
     /**
      * 构造函数
-     * 
+     * @param storeIndex
      * @param inputStream
      * @param fileExtName
      * @param fileSize
-     * @param storeIndex
      * @param isAppenderFile
      */
     public StorageUploadFileRequest(byte storeIndex, InputStream inputStream, String fileExtName, long fileSize,
             boolean isAppenderFile) {
         super();
         this.inputFile = inputStream;
+        this.fileSize = fileSize;
+        this.storeIndex = storeIndex;
+        this.fileExtName = fileExtName;
+        if (isAppenderFile) {
+            head = new ProtoHead(uploadAppenderCmd);
+        } else {
+            head = new ProtoHead(uploadCmd);
+        }
+    }
+    
+    /**
+     * 构造函数(发送文件byte流)
+     * @param storeIndex
+     * @param byte file
+     * @param fileExtName
+     * @param fileSize
+     * @param storeIndex
+     * @param isAppenderFile
+     */
+    public StorageUploadFileRequest(byte storeIndex, byte [] file, String fileExtName, long fileSize,
+            boolean isAppenderFile) {
+        super();
+        this.file = file;
         this.fileSize = fileSize;
         this.storeIndex = storeIndex;
         this.fileExtName = fileExtName;

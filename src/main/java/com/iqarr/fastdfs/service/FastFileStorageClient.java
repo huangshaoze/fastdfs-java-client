@@ -10,7 +10,7 @@ import com.iqarr.fastdfs.dataobject.StorePath;
 
 /**
  * 
-* @Title:面向普通应用的文件操作接口封装
+* @Title:面向普通应用的文件操作接口封装(废弃)
 *	 	FastFileStorageClient.java
 * @Package 
 *		com.iqarr.fastdfs.service

@@ -65,5 +65,25 @@ public class StorageUploadSlaveFileCommand extends AbstractFdfsCommand<StorePath
             // default response
         };
     }
+    
+    /**
+     * 文件上传命令
+     * 
+     * @param file byte流
+     * @param fileSize 文件大小
+     * @param masterFilename 主文件名称
+     * @param prefixName 从文件前缀
+     * @param fileExtName 文件扩展名
+     */
+    public StorageUploadSlaveFileCommand(byte [] file, long fileSize, String masterFilename,
+            String prefixName, String fileExtName) {
+        super();
+        this.request = new StorageUploadSlaveFileRequest(file, fileSize, masterFilename, prefixName,
+                fileExtName);
+        // 输出响应
+        this.response = new FdfsResponse<StorePath>() {
+            // default response
+        };
+    }
 
 }

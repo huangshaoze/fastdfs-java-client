@@ -68,6 +68,30 @@ public class StorageUploadSlaveFileRequest extends FdfsRequest {
         head = new ProtoHead(CmdConstants.STORAGE_PROTO_CMD_UPLOAD_SLAVE_FILE);
 
     }
+    
+    /**
+     * 构造函数
+     * 
+     * @param storeIndex
+     * @param byte file
+     * @param masterFilename
+     * @param fileExtName
+     * @param prefixName
+     * @param fileSize
+     * @param isAppenderFile
+     */
+    public StorageUploadSlaveFileRequest(byte []file, long fileSize, String masterFilename,
+            String prefixName, String fileExtName) {
+        super();
+        this.file = file;
+        this.fileSize = fileSize;
+        this.masterFileNameSize = masterFilename.length();
+        this.masterFilename = masterFilename;
+        this.fileExtName = fileExtName;
+        this.prefixName = prefixName;
+        head = new ProtoHead(CmdConstants.STORAGE_PROTO_CMD_UPLOAD_SLAVE_FILE);
+
+    }
 
     public long getMasterFileNameSize() {
         return masterFileNameSize;

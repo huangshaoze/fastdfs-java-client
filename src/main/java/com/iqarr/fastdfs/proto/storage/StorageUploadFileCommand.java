@@ -45,5 +45,24 @@ public class StorageUploadFileCommand extends AbstractFdfsCommand<StorePath> {
             // default response
         };
     }
+    /**
+     * 
+    * <p>Title: 文件上传命令</p>  
+    * <p>Description: 文件上传命令</p>  
+    * @param storeIndex 存储节点
+    * @param file  byte file
+    * @param fileExtName  文件扩展名
+    * @param fileSize 文件大小
+    * @param isAppenderFile 是否支持断点续传
+     */
+    public StorageUploadFileCommand(byte storeIndex, byte [] file, String fileExtName, long fileSize,
+                    boolean isAppenderFile) {
+                super();
+                this.request = new StorageUploadFileRequest(storeIndex, file, fileExtName, fileSize, isAppenderFile);
+                // 输出响应
+                this.response = new FdfsResponse<StorePath>() {
+                    // default response
+                };
+            }
 
 }

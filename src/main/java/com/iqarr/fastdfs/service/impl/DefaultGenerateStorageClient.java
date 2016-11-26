@@ -209,6 +209,50 @@ public class DefaultGenerateStorageClient implements GenerateStorageClient {
 
 
 
+    /*
+    * <p>Title: uploadFile</p>  
+    * <p>Description: </p>  
+    * @param groupName
+    * @param file
+    * @param fileSize
+    * @param fileExtName
+    * @return  
+    * @see com.iqarr.fastdfs.service.GenerateStorageClient#uploadFile(java.lang.String, byte[], long, java.lang.String)  
+    */
+    
+    @Override
+    public StorePath uploadFile(String groupName, byte[] file, long fileSize, String fileExtName) {
+        StorageNode client = trackerClient.getStoreStorage(groupName);
+        StorageUploadFileCommand command = new StorageUploadFileCommand(client.getStoreIndex(), file,
+                fileExtName, fileSize, false);
+        return connectionManager.executeFdfsCmd(client.getInetSocketAddress(), command);
+    }
+
+
+
+    /*
+    * <p>Title: uploadSlaveFile</p>  
+    * <p>Description: </p>  
+    * @param groupName
+    * @param masterFilename
+    * @param file
+    * @param fileSize
+    * @param prefixName
+    * @param fileExtName
+    * @return  
+    * @see com.iqarr.fastdfs.service.GenerateStorageClient#uploadSlaveFile(java.lang.String, java.lang.String, byte[], long, java.lang.String, java.lang.String)  
+    */
+    
+    @Override
+    public StorePath uploadSlaveFile(String groupName, String masterFilename, byte[] file, long fileSize, String prefixName, String fileExtName) {
+        StorageNodeInfo client = trackerClient.getUpdateStorage(groupName, masterFilename);
+        StorageUploadSlaveFileCommand command = new StorageUploadSlaveFileCommand(file, fileSize, masterFilename,
+                prefixName, fileExtName);
+        return connectionManager.executeFdfsCmd(client.getInetSocketAddress(), command);
+    }
+
+
+
    
 
 

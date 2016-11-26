@@ -32,6 +32,8 @@ public abstract class FdfsRequest {
     protected ProtoHead head;
     /** 发送文件 */
     protected InputStream inputFile;
+    /**  文件byte 先检查inpuStreame 在使用byte **/
+    protected byte [] file;
 
     /**
      * 获取报文头(包内可见)
@@ -83,4 +85,22 @@ public abstract class FdfsRequest {
         return 0;
     }
 
+    /**
+     * 获取 文件byte 先检查inpuStreame 在使用byte 
+     * @return file
+     */
+    public byte[] getFile() {
+        return file;
+    }
+
+    /**
+     * 设置 文件byte 先检查inpuStreame 在使用byte
+     * @param file 文件byte 先检查inpuStreame 在使用byte
+     */
+    public void setFile(byte[] file) {
+        this.file = file;
+    }
+
+    
+    
 }

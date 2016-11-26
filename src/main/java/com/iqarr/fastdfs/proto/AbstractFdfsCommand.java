@@ -96,6 +96,8 @@ public abstract class AbstractFdfsCommand<T> implements FdfsCommand<T> {
         // 输出文件流
         if (null != inputFile) {
             sendFileContent(inputFile, fileSize, out);
+        }else if(request.getFile()!=null){
+            sendFileContent(request.getFile(),out);
         }
 
     }
@@ -142,6 +144,30 @@ public abstract class AbstractFdfsCommand<T> implements FdfsCommand<T> {
             remainBytes -= bytes;
             LOGGER.debug("剩余数据量{}", remainBytes);
         }
+    }
+    /**
+     * 发送文件(byte)
+     * 
+     * @param ins
+     * @param ous
+     * @throws IOException
+     */
+    protected void sendFileContent(byte []file, OutputStream ous) throws IOException {
+       int size=file.length;
+       LOGGER.debug("开始上传文件流大小为{}", size);
+       int buffSize=256 * 1024;
+       byte[] buff = new byte[buffSize];
+        for(int i=0;i<size;){
+          if(size-i<0){
+              buffSize=i-size;
+            }
+         System.arraycopy(file, i, buff, 0, buffSize);
+         ous.write(buff, 0, buffSize);
+         i+=buffSize;
+          
+        }
+            
+     
     }
 
 }

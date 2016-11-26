@@ -57,7 +57,7 @@ public class ConnectionManager {
 
         // 获取连接
         Connection conn = getConnection(address);
-        // 执行交易
+        // 执行
         return execute(address, conn, command);
 
     }
