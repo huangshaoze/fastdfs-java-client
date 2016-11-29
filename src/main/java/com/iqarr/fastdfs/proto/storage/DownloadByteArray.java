@@ -5,7 +5,6 @@ import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
 
-
 /**
  * 
 * @Title:下载为byte流

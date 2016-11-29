@@ -7,8 +7,6 @@ import java.util.Set;
 import com.iqarr.fastdfs.constants.OtherConstants;
 import com.iqarr.fastdfs.dataobject.MateData;
 
-
-
 /**
  * 
 * @Title:文件标签（元数据）映射对象

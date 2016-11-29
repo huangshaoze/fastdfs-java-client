@@ -10,8 +10,6 @@ import com.iqarr.fastdfs.constants.ErrorCodeConstants;
 import com.iqarr.fastdfs.constants.OtherConstants;
 import com.iqarr.fastdfs.exception.FdfsServerException;
 
-
-
 /**
  * 
 * @Title:FDFS协议头定义

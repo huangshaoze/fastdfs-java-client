@@ -1,10 +1,22 @@
 package com.iqarr.fastdfs.exception;
 
+
 /**
- * 非fastdfs本身的错误码抛出的异常，取服务端连接取不到时抛出的异常
  * 
- * @author yuqihuang
- * 
+* @Title:非fastdfs本身的错误码抛出的异常，取服务端连接取不到时抛出的异常
+*	 	FdfsUnAvailableException.java
+* @Package 
+*		com.iqarr.fastdfs.exception
+* @ClassName: 
+*		FdfsUnAvailableException  
+* @since 
+*	  V1.0
+* @author 
+*		zhangyong   
+* @date 
+*		2016/11/29-10:52:07
+* @version 
+*		V1.0
  */
 public class FdfsUnAvailableException extends FdfsException {
 

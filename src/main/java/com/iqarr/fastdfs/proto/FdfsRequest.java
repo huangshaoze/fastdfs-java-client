@@ -7,8 +7,6 @@ import com.iqarr.fastdfs.mapperfactory.FdfsParamMapperFactory;
 import com.iqarr.fastdfs.mapperfactory.ObjectMateData;
 
 
-
-
 /**
  * 
 * @Title:Fdfs交易请求基类

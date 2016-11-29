@@ -13,10 +13,6 @@ import com.iqarr.fastdfs.constants.OtherConstants;
 import com.iqarr.fastdfs.dataobject.MateData;
 import com.iqarr.fastdfs.exception.FdfsColumnMapException;
 
-
-
-
-
 /**
  * 属性映射MateData定义
 * @Title:
