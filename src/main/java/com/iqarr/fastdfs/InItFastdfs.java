@@ -1,11 +1,8 @@
 package com.iqarr.fastdfs;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -56,8 +53,9 @@ public class InItFastdfs {
         try {
             
             // 读取config
-            URL resource = InItFastdfs.class.getClassLoader().getResource(FastdfsSystemConstants.CONFIG_FILE_NAME);
-            InputStream in = new FileInputStream(new File(resource.getPath()));
+            //URL resource = InItFastdfs.class.getClassLoader().getResource(FastdfsSystemConstants.CONFIG_FILE_NAME);
+            InputStream      in = InItFastdfs.class.getClassLoader().getResourceAsStream(FastdfsSystemConstants.CONFIG_FILE_NAME);
+           // InputStream in = new FileInputStream(new File(resource.getPath()));
             Properties properties = new Properties();
             properties.load(in);
             Object charset = properties.get(FastdfsSystemConstants.CONFIG_FILE_KEY_CHARSET);

@@ -150,21 +150,26 @@ public abstract class AbstractFdfsCommand<T> implements FdfsCommand<T> {
      * @throws IOException
      */
     protected void sendFileContent(byte []file, OutputStream ous) throws IOException {
-       int size=file.length;
-       LOGGER.debug("开始上传文件流大小为{}", size);
-       int buffSize=256 * 1024;
-       byte[] buff = new byte[buffSize];
-        for(int i=0;i<size;){
-          if(size-i<0){
-              buffSize=i-size;
-            }
-         System.arraycopy(file, i, buff, 0, buffSize);
-         ous.write(buff, 0, buffSize);
-         i+=buffSize;
-          
+        int size = file.length;
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("开始上传文件流大小为{}", size);
         }
+        int buffSize = 256 * 1024;
+        if (buffSize > size) {
+            buffSize = size;
+        }
+        byte[] buff = new byte[buffSize];
+        for (int i = 0; i < size;) {
+            if (size- buffSize- i < 0) {
+                buffSize = size-i;
+            }
+            System.arraycopy(file, i, buff, 0, buffSize);
             
-     
+            ous.write(buff, 0, buffSize);
+            i += buffSize;
+            
+        }
+        
     }
 
 }
