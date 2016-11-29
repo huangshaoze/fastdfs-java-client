@@ -51,7 +51,7 @@ fastdfs.fdht.type=0
 ## 上传文件
 ```java
 InItFastdfs.Init();
-TrackerClient tc =  DefaultTrackerClient.build();
+TrackerClient tc = new DefaultTrackerClient();
 DefaultGenerateStorageClient sgsc = new DefaultGenerateStorageClient(tc);
 StorePath uploadFile = sgsc.uploadFile(null, new FileInputStream(new File("/home/user/image.png")), file.length(), "png");
 System.out.println(uploadFile.toString());
@@ -60,7 +60,7 @@ System.out.println(uploadFile.toString());
 ## 秒传
 ```java
 		InItFastdfs.Init();
-        TrackerClient dtc = DefaultTrackerClient.build();
+        TrackerClient dtc = new DefaultTrackerClient();
        // System.out.println("0000000000099246768639FA12E54362CA4DEEFE3AB5AEB8".length());
         GenerateStorageClient sgsc = new DefaultGenerateStorageClient(dtc);
         //上传主文件
