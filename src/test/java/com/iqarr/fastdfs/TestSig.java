@@ -40,7 +40,7 @@ public class TestSig {
         }
         
         //上传从文件
-        uploadFile = sgsc.uploadSlaveFileSig("group1",BaseUtils.frmatSignature( "0000000000099246768639FA12E54362CA4DEEFE3AB5AEB8"),uploadFile.getPath(), 200, "_AAAA",".png");
+        uploadFile = sgsc.uploadSlaveFileSig("group1",BaseUtils.getFillSignature( 1000,"0000000000099246768639FA12E54362CA4DEEFE3AB5AEB8"),uploadFile.getPath(), 200, "_AAAA",".png");
         if (uploadFile == null) {
             System.out.println("file not find");
         }

@@ -38,7 +38,8 @@ public class BaseUtils {
      * @param signature
      * @return
      */
-    public static String frmatSignature(String signature) {
+    @SuppressWarnings("unused")
+    private  static String frmatSignature(String signature) {
         if (signature == null || "".equals(signature)) {
             return "000000000000000000000000000000000000000000000000";
         }
@@ -54,6 +55,38 @@ public class BaseUtils {
                 }
                 sb.append(signature);
                 return sb.toString();
+                
+            }
+        }
+    }
+    /**
+     * 
+     * @Title: 
+     *		getFillSignature
+     * @Description: 
+     *		获取文件完整前面
+     * @param fileSize long
+     * @param signature 签名md5
+     * @return
+     */
+    public static String getFillSignature(long fileSize, String signature) {
+        
+        if (signature == null || "".equals(signature)) {
+            return "000000000000000000000000000000000000000000000000";
+        } else {
+            if (signature.length() == SIG_LENTH) {
+                return signature;
+            } else {
+                String hexSize = Long.toHexString(fileSize);
+                StringBuffer all = new StringBuffer();
+                
+                int size = hexSize.length() + signature.length();
+                for (int i = 0; i < SIG_LENTH - size; i++) {
+                    all.append("0");
+                }
+                all.append(hexSize);
+                all.append(signature);
+                return all.toString();
                 
             }
         }

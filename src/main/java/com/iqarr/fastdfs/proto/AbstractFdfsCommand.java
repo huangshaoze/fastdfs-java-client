@@ -166,6 +166,7 @@ public abstract class AbstractFdfsCommand<T> implements FdfsCommand<T> {
             System.arraycopy(file, i, buff, 0, buffSize);
             
             ous.write(buff, 0, buffSize);
+            ous.flush();
             i += buffSize;
             
         }

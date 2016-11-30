@@ -72,7 +72,7 @@ System.out.println(uploadFile.toString());
             System.out.println(uploadFile.toString());
         }
         //上传从文件
-        uploadFile = sgsc.uploadSlaveFileSig("group1",BaseUtils.frmatSignature( "0000000000099246768639FA12E54362CA4DEEFE3AB5AEB8"),uploadFile.getPath(), 200, "_AAA11A",".png");
+        uploadFile = sgsc.uploadSlaveFileSig("group1",BaseUtils.getFillSignature(122, "0000000000099246768639FA12E54362CA4DEEFE3AB5AEB8"),uploadFile.getPath(), 200, "_AAA11A",".png");
         if (uploadFile == null) {
             System.out.println("file not find");
         }
